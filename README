@@ -9,7 +9,10 @@ the existing key pairs in your AWS account.
 
 You can then simply run this command:
    
-      aws cloudformation create-stack --stack-name ClojureAutoGroup --template-body file://$PWD/albwithec2s.json --parameters  ParameterKey=KeyName,ParameterValue=<name of your chosen EC2 key pair> ParameterKey=MyEmail,ParameterValue=<your chosen email address>
+      aws cloudformation create-stack --stack-name ClojureAutoGroup \ 
+          --template-body file://$PWD/albwithec2s.json \ 
+          --parameters  ParameterKey=KeyName,ParameterValue=<name of your chosen EC2 key pair> \
+                        ParameterKey=MyEmail,ParameterValue=<your chosen email address>
 
 Wait a while, check your CF console, and when the creation is complete, you will hopefully find 
 the resulting CF stack ticks all the boxes. 
