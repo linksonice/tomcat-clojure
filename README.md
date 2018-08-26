@@ -1,3 +1,3 @@
 # tomcat-clojure
 
-a thing I did for some company
+a nifty prototype I threw together for a client
