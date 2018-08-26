@@ -2,7 +2,7 @@ Hello and welcome to this project.
 
 cd into the directory like so:
 
-      cd tomcat-clojure/
+       cd tomcat-clojure/
 
 To deploy the entire stack, you need a valid  email address that you have access to, and one of 
 the existing key pairs in your AWS account. 
