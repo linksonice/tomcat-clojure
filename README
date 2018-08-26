@@ -1,0 +1,53 @@
+Hello and welcome to the project.
+
+Please cd into the directory after you've unzipped the zip archive, like so:
+
+      cd gousto-clojure/
+
+To deploy the entire stack, you need a valid  email address that you have access to, and one of 
+the existing key pairs in your AWS account. 
+
+You can then simply run this command:
+   
+      aws cloudformation create-stack --stack-name ClojureAutoGroup --template-body file://$PWD/albwithec2s.json --parameters  ParameterKey=KeyName,ParameterValue=<name of your chosen EC2 key pair> ParameterKey=MyEmail,ParameterValue=<your chosen email address>
+
+Wait a while, check your CF console, and when the creation is complete, you will hopefully find 
+the resulting CF stack ticks all the boxes. 
+
+Comments:
+
+I can't boast about the presentation, tidiness of the code, attention to detail and so on and so 
+forth, as I've made the thing whenever time allowed over the course of the last few days, very 
+much throwing together various existing elements, rather than writing it completely from  scratch, 
+all of this of course in order to save time.
+
+I also might have added a parameters.json and used the --parameters flag on the create-stack, but 
+again I've sacrificed quality for doing a faster job and simply ticking all the boxes, in order to
+demonstrate various capabilities. Under normal circumstances I would try to strike a better balance, one
+leaning more in favour of quality. 
+ 
+In any case the 70% CPU utilisation threshold mentioned in your list of objectives threshold serves 
+as the catalyst for 
+
+a) scaling out the cluster from  1 to 2
+
+AND
+
+b) sending the email
+
+In both cases we're looking at CPUUtilization > 70 for 1 datapoint within 1 minute. The stress package is
+ready installed as well, so you can ssh to the 1st instance and run a typical command:
+
+       stress --cpu 16 --io 4 --vm 2 --vm-bytes 128M --timeout 120s &
+
+for a couple of minutes to thrash it a bit, resulting in the both an email, and a scale-out to the maximum 
+of 2 instances in the auto-scaling group.
+
+Finally I've chosen chef-solo to deploy my own (home made for the purpose), very simple tomcat-clojure 
+cookbook. Strictly speaking it wouldn't have been necessary to use any configuration management tool at all
+(such as puppet, ansible, chef etc) whatsoever as the objectives stated could very easily have been met in 
+the UserData section of the CF alone, but as the objectives list seems to imply that it would be nice to 
+demonstrate the use of a config management tool, this was the path taken in the end. The cookbook is 
+downloaded from my own publicly accessible s3 bucket, again from the UserData section of the CF template, 
+and part of an over-arching chef/ directory; just the way I'm used to working at the moment with chef-solo.
+
