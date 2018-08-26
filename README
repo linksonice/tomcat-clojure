@@ -1,8 +1,8 @@
 Hello and welcome to the project.
 
-Please cd into the directory after you've unzipped the zip archive, like so:
+cd into the directory like so:
 
-      cd gousto-clojure/
+      cd tomcat-clojure/
 
 To deploy the entire stack, you need a valid  email address that you have access to, and one of 
 the existing key pairs in your AWS account. 
@@ -17,14 +17,14 @@ the resulting CF stack ticks all the boxes.
 Comments:
 
 I can't boast about the presentation, tidiness of the code, attention to detail and so on and so 
-forth, as I've made the thing whenever time allowed over the course of the last few days, very 
+forth, as I've made the thing whenever time allowed over the course of the last few  hours, very 
 much throwing together various existing elements, rather than writing it completely from  scratch, 
 all of this of course in order to save time.
 
 I also might have added a parameters.json and used the --parameters flag on the create-stack, but 
 again I've sacrificed quality for doing a faster job and simply ticking all the boxes, in order to
-demonstrate various capabilities. Under normal circumstances I would try to strike a better balance, one
-leaning more in favour of quality. 
+demonstrate various capabilities. Under normal circumstances I would try to strike a better balance, 
+one leaning more in favour of quality. 
  
 In any case the 70% CPU utilisation threshold mentioned in your list of objectives threshold serves 
 as the catalyst for 
@@ -35,8 +35,8 @@ AND
 
 b) sending the email
 
-In both cases we're looking at CPUUtilization > 70 for 1 datapoint within 1 minute. The stress package is
-ready installed as well, so you can ssh to the 1st instance and run a typical command:
+In both cases we're looking at CPUUtilization > 70 for 1 datapoint within 1 minute. The stress 
+package is ready installed as well, so you can ssh to the 1st instance and run a typical command:
 
        stress --cpu 16 --io 4 --vm 2 --vm-bytes 128M --timeout 120s &
 
