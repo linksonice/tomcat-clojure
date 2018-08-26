@@ -1,0 +1,2 @@
+chef-solo -c solo.rb -j web.json
+sudo chef-solo -c /home/ec2-user/chef-local/solo.rb -j /home/ec2-user/chef-local/roles/clojure.role.json
