@@ -30,7 +30,7 @@ again I've sacrificed quality for doing a faster job and simply ticking all the 
 demonstrate various capabilities. Under normal circumstances I would try to strike a better balance, 
 one leaning more in favour of quality. 
  
-In any case the 70% CPU utilisation threshold mentioned in your list of objectives threshold serves 
+In any case the 70% CPU utilisation threshold mentioned in the list of objectives threshold serves 
 as the catalyst for 
 
 a) scaling out the cluster from  1 to 2
@@ -55,3 +55,6 @@ demonstrate the use of a config management tool, this was the path taken in the 
 downloaded from my own publicly accessible s3 bucket, again from the UserData section of the CF template, 
 and part of an over-arching chef/ directory; just the way I'm used to working at the moment with chef-solo.
 
+FINALLY: you need to use this curl command for final proof of pudding:
+
+       curl -o - http://<ALB endpoint>:8080/clojure-collector-1.1.0-standalone/i
