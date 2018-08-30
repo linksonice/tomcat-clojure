@@ -548,7 +548,7 @@
           "yum install stress -y\n",
           "updatedb\n",
           "cd /root\n",
-          "wget https://s3.eu-west-2.amazonaws.com/muchogousto/chef.zip\n",
+          "wget https://s3.eu-west-2.amazonaws.com/rancid9000/devops/chef.zip\n",
           "unzip chef.zip\n",
           "cd chef\n",
           "./installer.sh\n",
