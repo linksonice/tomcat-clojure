@@ -1,0 +1,10 @@
+[
+    {
+        "ParameterKey":"KeyName",
+        "ParameterValue":"london-key-pair"
+    },
+    {
+        "ParameterKey":"MyEmail",
+        "ParameterValue":"adoicin@gmail.com"
+    }
+]
