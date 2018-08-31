@@ -234,7 +234,7 @@
             "Properties": {
                 "EvaluationPeriods": "1",
                 "Statistic": "Average",
-                "Threshold": "70",
+                "Threshold": "20",
                 "AlarmDescription": "Alarm if CPU too high or metric disappears indicating instance is down",
                 "Period": "60",
                 "AlarmActions": [ { "Ref": "ScaleUpPolicy" }, { "Ref" : "MySNSTopic" } ],
@@ -244,6 +244,35 @@
                     "Value": { "Ref": "WebServerFleet" }
                 } ],
                 "ComparisonOperator": "GreaterThanThreshold",
+                "MetricName": "CPUUtilization"
+            }
+        },
+
+        "ScaleDownPolicy" : {
+            "Type" : "AWS::AutoScaling::ScalingPolicy",
+            "Properties" : {
+                "AdjustmentType" : "ChangeInCapacity",
+                "AutoScalingGroupName" : { "Ref" : "WebServerFleet" },
+                "Cooldown" : "1",
+                "ScalingAdjustment" : "-1"
+            }
+        },
+
+        "CPUAlarmLow": {
+            "Type": "AWS::CloudWatch::Alarm",
+            "Properties": {
+                "EvaluationPeriods": "1",
+                "Statistic": "Average",
+                "Threshold": "10",
+                "AlarmDescription": "Alarm if CPU is low, causing scale down",
+                "Period": "60",
+                "AlarmActions": [ { "Ref": "ScaleDownPolicy" } ],
+                "Namespace": "AWS/EC2",
+                "Dimensions": [ {
+                    "Name": "AutoScalingGroupName",
+                    "Value": { "Ref": "WebServerFleet" }
+                } ],
+                "ComparisonOperator": "LessThanThreshold",
                 "MetricName": "CPUUtilization"
             }
         },
