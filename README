@@ -20,7 +20,7 @@ the resulting CF stack ticks all the boxes.
 
 Comments:
 
-The 70% CPU utilisation threshold mentioned in the list of objectives threshold serves 
+The 20% CPU utilisation threshold mentioned in the list of objectives threshold serves 
 as the catalyst for 
 
 a) scaling out the cluster from  1 to 2
@@ -29,7 +29,7 @@ AND
 
 b) sending the email
 
-In both cases we're looking at CPUUtilization > 70 for 1 datapoint within 1 minute. The stress 
+In both cases we're looking at CPUUtilization > 20 for 1 datapoint within 1 minute. The stress 
 package is ready installed as well, so you can ssh to the 1st instance and run a typical command:
 
        stress --cpu 16 --io 4 --vm 2 --vm-bytes 128M --timeout 120s &
