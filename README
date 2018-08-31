@@ -20,17 +20,7 @@ the resulting CF stack ticks all the boxes.
 
 Comments:
 
-I can't boast about the presentation, tidiness of the code, attention to detail and so on and so 
-forth, as I've made the thing whenever time allowed over the course of the last few  hours, very 
-much throwing together various existing elements, rather than writing it completely from  scratch, 
-all of this of course in order to save time.
-
-I also might have added a parameters.json and used the --parameters flag on the create-stack, but 
-again I've sacrificed quality for doing a faster job and simply ticking all the boxes, in order to
-demonstrate various capabilities. Under normal circumstances I would try to strike a better balance, 
-one leaning more in favour of quality. 
- 
-In any case the 70% CPU utilisation threshold mentioned in the list of objectives threshold serves 
+The 70% CPU utilisation threshold mentioned in the list of objectives threshold serves 
 as the catalyst for 
 
 a) scaling out the cluster from  1 to 2
@@ -58,3 +48,5 @@ and part of an over-arching chef/ directory; just the way I'm used to working at
 FINALLY: you need to use this curl command for final proof of pudding:
 
        curl -o - http://<ALB endpoint>:8080/clojure-collector-1.1.0-standalone/i
+
+rather than the command shown in the PDF, because curl has changed lately. :)
