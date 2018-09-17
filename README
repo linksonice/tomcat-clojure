@@ -5,15 +5,13 @@ cd into the directory like so:
        cd tomcat-clojure/
 
 To deploy the entire stack, you need a valid  email address that you have access to, and one of 
-the existing key pairs in your AWS account. 
+the existing key pairs in your AWS account. These 2 values should be entered in the parameters.json file.
 
 You can then simply run this command:
    
       aws cloudformation create-stack --stack-name ClojureAutoGroup \ 
           --template-body file://$PWD/albwithec2s.json \ 
           --parameters  file://$PWD/parameters.json
-
-The 2 values you need to know yourself are in the parameters.json file just added.
 
 Wait a while, check your CF console, and when the creation is complete, you will hopefully find 
 the resulting CF stack ticks all the boxes. 
@@ -49,4 +47,4 @@ FINALLY: you need to use this curl command for final proof of pudding:
 
        curl -o - http://<ALB endpoint>:8080/clojure-collector-1.1.0-standalone/i
 
-rather than the command shown in the PDF, because curl has changed lately. :)
+rather than the command shown in the PDF, because curl has changed lately. 
